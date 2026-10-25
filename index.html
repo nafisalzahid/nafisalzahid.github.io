@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nafis Al Zahid | Handwritten Engineering & Scientific Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="[https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css](https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css)">
+
+
+    <!-- Google Fonts for Handwritten & Code aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;600;700&family=Fira+Code:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS STYLES & HANDDRAWN EFFECTS -->
+    <style>
+        /* ==========================================================================
+           1. CORE FONTS & SKETCHBOOK BASE THEME
+           ========================================================================== */
+        :root {
+            --paper-bg: #f9f6ee;
+            --grid-line: rgba(180, 200, 220, 0.35);
+            --ink-blue: #1d3557;
+            --ink-black: #2b2d42;
+            --margin-red: rgba(230, 57, 70, 0.45);
+            --pencil-gray: #4a4e69;
+            --highlight-yellow: rgba(255, 225, 100, 0.65);
+        }
+
+        body {
+            background-color: var(--paper-bg);
+            color: var(--ink-black);
+            font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            /* Graph Paper Grid Effect */
+            background-image: 
+                linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+            background-size: 24px 24px;
+            overflow-x: hidden;
+        }
+
+
+
+        /* ==========================================================================
+           2. RED NOTEBOOK MARGIN & SPIRAL BINDER LOOPS
+           ========================================================================== */
+        .notebook-margin-line {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 48px;
+            width: 2px;
+            background-color: var(--margin-red);
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .spiral-binder {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 8px;
+            width: 32px;
+            z-index: 30;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            pointer-events: none;
+        }
+
+        .spiral-ring {
+            width: 24px;
+            height: 12px;
+            border: 3px solid #64748b;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #cbd5e1 0%, #475569 100%);
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin: 6px 0;
+        }
+
+        @media (max-width: 640px) {
+            .notebook-margin-line { left: 28px; }
+            .spiral-binder { left: 2px; width: 22px; }
+            .spiral-ring { width: 18px; height: 9px; border-width: 2px; }
+        }
+
+        /* ==========================================================================
+           3. SVG FILTER EFFECTS & HAND-DRAWN BORDERS
+           ========================================================================== */
+        .rough-border {
+            border: 2px solid var(--ink-blue);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            box-shadow: 3px 4px 0px var(--ink-blue);
+            transition: all 0.25s ease-in-out;
+        }
+
+        .rough-border:hover {
+            transform: translateY(-3px) rotate(-0.5deg);
+            box-shadow: 5px 7px 0px var(--ink-blue);
+        }
+
+        .sketch-box {
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 2px solid var(--ink-black);
+            border-radius: 2% 98% 3% 97% / 98% 3% 97% 2%;
+            box-shadow: 4px 5px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Tape Banner Effect */
+        .tape-banner {
+            position: relative;
+        }
+        .tape-banner::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 30%;
+            width: 100px;
+            height: 26px;
+            background-color: rgba(243, 244, 246, 0.7);
+            border: 1px dashed #d1d5db;
+            transform: rotate(-3deg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        /* Highlighter effect */
+        .highlight {
+            background: linear-gradient(104deg, rgba(255,225,100,0) 0.9%, rgba(255,225,100,0.85) 2.4%, rgba(255,225,100,0.7) 97.9%, rgba(255,225,100,0) 100%);
+            padding: 0.1em 0.4em;
+            border-radius: 0.2em;
+        }
+
+        .highlight-blue {
+            background: linear-gradient(104deg, rgba(191,219,254,0) 0.9%, rgba(191,219,254,0.85) 2.4%, rgba(191,219,254,0.7) 97.9%, rgba(191,219,254,0) 100%);
+            padding: 0.1em 0.4em;
+            border-radius: 0.2em;
+        }
+
+        /* Smooth scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--paper-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+            border: 2px solid var(--paper-bg);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="pt-6 pb-16 px-4 md:px-12 lg:px-20 min-h-screen">
+
+    <!-- ==========================================================================
+       SVG ROUGH FILTERS FOR HAND-DRAWN SKETCHY EFFECTS
+       ========================================================================== -->
+    <svg width="0" height="0" class="absolute">
+        <defs>
+            <filter id="rough-paper">
+                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
+                <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="1.5">
+                    <feDistantLight azimuth="60" elevation="50" />
+                </feDiffuseLighting>
+                <feBlend mode="multiply" in="SourceGraphic" result="blend" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Notebook Left Red Line & Spiral Rings -->
+    <div class="notebook-margin-line"></div>
+    <div class="spiral-binder" id="spiral-binder">
+        <!-- Javascript dynamically fills spiral rings for seamless vertical repeat -->
+    </div>
+
+    <!-- MAIN CONTAINER WITH PADDING FOR NOTEBOOK MARGIN -->
+    <div class="max-w-6xl mx-auto pl-8 sm:pl-12 lg:pl-16 relative">
+
+        <!-- ==========================================================================
+           HEADER & NAVIGATION BAR (Handwritten Notebook Style)
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: NAVIGATION LINKS === */ -->
+        <header class="mb-12 flex flex-wrap items-center justify-between gap-4 border-b-2 border-dashed border-slate-400 pb-4">
+            <div class="flex items-center gap-2">
+                <span class="font-caveat text-3xl font-bold text-slate-800 tracking-wide">
+                    <i class="fa-solid fa-compass-drafting text-blue-700 mr-1"></i> Nafis.notes()
+                </span>
+                <span class="text-xs font-code bg-amber-100 text-amber-800 px-2 py-0.5 rounded border border-amber-300">
+                    BUET NAME '24
+      
+    </nav>
+  </header>
+
+
+        <!-- ==========================================================================
+           1. HERO & BIO SECTION
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: BIO & QUICK INFO === */ -->
+        <section id="about" class="mb-16 reveal active">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                
+                <!-- Main Bio Note -->
+                <div class="md:col-span-8 sketch-box p-6 md:p-8 relative tape-banner">
+                    <div class="inline-block bg-blue-100 text-blue-900 px-3 py-1 text-sm rounded-md font-code mb-3 border border-blue-300">
+                        // Student ID: 2412002 | Naval Architecture & Marine Eng.
+                    </div>
+                    <h1 class="font-caveat text-4xl sm:text-5xl font-bold text-slate-900 mb-3 leading-tight">
+                        Hello! I'm <span class="highlight">Nafis Al Zahid</span> 👋
+                    </h1>
+                    <p class="text-lg text-slate-800 mb-4 leading-relaxed">
+                        Undergraduate student at <strong class="text-blue-900">BUET</strong> (Bangladesh University of Engineering and Technology) pursuing a B.Sc. in
+                        <span class="highlight-blue font-semibold">Naval Architecture and Marine Engineering</span>. 
+                        Deeply interested in mathematics, physics, computational modeling, artificial intelligence, machine learning, deep learning, quantum computing, and mechanical engineering simulations.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 text-sm font-code mb-4">
+                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-300"><i class="fa-solid fa-square-root-variable mr-1 text-amber-600"></i>Mathematics & Physics</span>
+                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-300"><i class="fa-solid fa-brain mr-1 text-purple-600"></i>AI & Deep Learning</span>
+                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-300"><i class="fa-solid fa-atom mr-1 text-blue-600"></i>Simulations & Quantum</span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap gap-4 items-center">
+                        <a href="https://github.com/7angle-n" target="_blank" rel="noopener" class="rough-border bg-slate-800 text-white px-4 py-2 text-base font-architect flex items-center gap-2 hover:bg-slate-900">
+                            <i class="fa-brands fa-github text-lg"></i> GitHub Profile
+                        </a>
+                        <a href="#scratchpad" class="underline decoration-wavy text-blue-800 font-architect font-bold hover:text-blue-900">
+                            Leave a hand-drawn note below &darr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sticky Note Sidebar Widget: Quick Focus & Interests -->
+                <!-- /* === EDIT HERE: QUICK FOCUS & INTERESTS BADGES === */ -->
+                <div id="interests" class="md:col-span-4 sketch-box p-6 bg-amber-100 border-amber-300 rotate-1 hover:rotate-0 transition-transform">
+                    <div class="text-xs font-code uppercase tracking-wider text-amber-900 mb-3 font-bold border-b border-amber-300 pb-1 flex items-center gap-1">
+                        📌 Quick Focus & Interests
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Mathematics</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Physics</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Computational Chemistry</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Quantum Computation</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">ML</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Deep Learning</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">AI</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">NLP</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Computer Vision</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Mechanical Engineering</span>
+                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Simulations</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+           2. EDUCATION SECTION (Notebook Timeline)
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: EDUCATION TIMELINE === */ -->
+        <section id="education" class="mb-16 reveal">
+            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-blue-700"></i> Education Timeline
+                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Academic Background)</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- BUET Card -->
+                <div class="sketch-box p-5 bg-white border-l-4 border-l-blue-600 relative">
+                    <span class="text-xs font-code bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Currently Pursuing</span>
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mt-2">BUET</h3>
+                    <p class="text-sm font-semibold text-slate-700">B.Sc. in Naval Architecture & Marine Engineering</p>
+                    <p class="text-xs font-code text-slate-500 mt-2">Student ID: 2412002</p>
+                </div>
+
+                <!-- Notre Dame College -->
+                <div class="sketch-box p-5 bg-white border-l-4 border-l-amber-500 relative">
+                    <span class="text-xs font-code bg-amber-100 text-amber-800 px-2 py-0.5 rounded">HSC Science</span>
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mt-2">Notre Dame College</h3>
+                    <p class="text-sm text-slate-700">Motijheel, Dhaka</p>
+                    <p class="text-xs text-slate-500 mt-2">Higher Secondary Certificate (Science Group)</p>
+                </div>
+
+                <!-- Ideal School and College -->
+                <div class="sketch-box p-5 bg-white border-l-4 border-l-emerald-500 relative">
+                    <span class="text-xs font-code bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">SSC Science</span>
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mt-2">Ideal School & College</h3>
+                    <p class="text-sm text-slate-700">Banasree Branch, Dhaka</p>
+                    <p class="text-xs text-slate-500 mt-2">Secondary School Certificate (Science Group)</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+           3. OLYMPIADS & ACHIEVEMENTS SECTION
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: OLYMPIADS & ACHIEVEMENTS === */ -->
+        <section id="olympiads" class="mb-16 reveal">
+            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-trophy text-amber-600"></i> Olympiads & Achievements
+                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Competitions & Honors)</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                <!-- BDMO -->
+                <div class="sketch-box p-5 bg-amber-50/80 border-amber-300">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-caveat font-bold text-xl text-amber-900">BDMO 2021</span>
+                        <i class="fa-solid fa-award text-amber-600 text-xl"></i>
+                    </div>
+                    <p class="text-base text-slate-800 font-semibold">National Winner & National Camper</p>
+                    <p class="text-xs text-slate-600 mt-1">Bangladesh Mathematical Olympiad</p>
+                </div>
+
+                <!-- BDPhO -->
+                <div class="sketch-box p-5 bg-blue-50/80 border-blue-300">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-caveat font-bold text-xl text-blue-900">BDPhO 2023</span>
+                        <i class="fa-solid fa-medal text-blue-600 text-xl"></i>
+                    </div>
+                    <p class="text-base text-slate-800 font-semibold">National Winner & National Camper</p>
+                    <p class="text-xs text-slate-600 mt-1">Bangladesh Physics Olympiad</p>
+                </div>
+
+                <!-- BDOAA -->
+                <div class="sketch-box p-5 bg-purple-50/80 border-purple-300">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-caveat font-bold text-xl text-purple-900">BDOAA 2023</span>
+                        <i class="fa-solid fa-star text-purple-600 text-xl"></i>
+                    </div>
+                    <p class="text-base text-slate-800 font-semibold">National Camper</p>
+                    <p class="text-xs text-slate-600 mt-1">Bangladesh Astronomy & Astrophysics Olympiad</p>
+                </div>
+
+                <!-- Iranian Combinatorics -->
+                <div class="sketch-box p-5 bg-orange-50/80 border-orange-300">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-caveat font-bold text-xl text-orange-900">ICO Bronze Medalist</span>
+                        <i class="fa-solid fa-shield-halved text-orange-600 text-xl"></i>
+                    </div>
+                    <p class="text-base text-slate-800 font-semibold">Iranian Combinatorics Olympiad</p>
+                    <p class="text-xs text-slate-600 mt-1">Team: <em>Pirates of Combinatorics</em></p>
+                </div>
+
+                <!-- BDBO -->
+                <div class="sketch-box p-5 bg-emerald-50/80 border-emerald-300">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-caveat font-bold text-xl text-emerald-900">BDBO</span>
+                        <i class="fa-solid fa-leaf text-emerald-600 text-xl"></i>
+                    </div>
+                    <p class="text-base text-slate-800 font-semibold">2nd Runner-up (Regional)</p>
+                    <p class="text-xs text-slate-600 mt-1">Bangladesh Biology Olympiad</p>
+                </div>
+
+                <!-- Physics Brawl & Clubs -->
+                <div class="sketch-box p-5 bg-rose-50/80 border-rose-300">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-caveat font-bold text-xl text-rose-900">Physics Brawl & Club Honors</span>
+                        <i class="fa-solid fa-atom text-rose-600 text-xl"></i>
+                    </div>
+                    <p class="text-base text-slate-800 font-semibold">Team Kochi Physicists</p>
+                    <p class="text-xs text-slate-600 mt-1">Winner of several Olympiad competitions organized by math clubs</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+           4. PROJECTS SHOWCASE SECTION (EXACT 8 REAL PROJECTS)
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: PROJECTS SHOWCASE === */ -->
+        <section id="projects" class="mb-16 reveal">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div>
+                    <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code text-indigo-700"></i> Project Showcase
+                        <span class="text-sm font-architect text-slate-500 font-normal ml-2">(8 Main Projects)</span>
+                    </h2>
+                    <p class="text-sm text-slate-600">Explore computational solvers, physics simulations, and automation tools.</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 text-sm font-architect">
+                    <button onclick="filterProjects('all')" class="project-filter-btn bg-slate-800 text-white px-3 py-1 rounded-full border border-slate-700 active-filter">All (8)</button>
+                    <button onclick="filterProjects('naval-arch')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Naval / Routing</button>
+                    <button onclick="filterProjects('physics')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Physics & Math</button>
+                    <button onclick="filterProjects('automation')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Automation</button>
+                    <button onclick="filterProjects('data-science')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Data Science</button>
+                </div>
+            </div>
+
+            <!-- PROJECTS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-container">
+
+                <!-- PROJECT 1: Structural Mechanics Solver -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="naval-arch physics">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded border border-indigo-200">
+                                Naval Arch / Mechanics
+                            </span>
+                            <span class="text-xs text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                                <i class="fa-solid fa-globe mr-1"></i> Live Web App
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Structural Mechanics Solver
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Web application for structural mechanics analysis, frame and beam solver calculations, and internal force diagram generation.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-between">
+                        <a href="https://structural-mechanics-solver.vercel.app/" target="_blank" rel="noopener" class="text-sm font-architect text-indigo-700 font-bold hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open App
+                        </a>
+                        <a href="https://github.com/7angle-n/Structural-Mechanics-Solver" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: YouTube to Screenshot & PDF -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="automation">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-amber-100 text-amber-800 px-2 py-0.5 rounded border border-amber-200">
+                                Python / Automation
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Youtube to Screenshot and PDF with refined transcript
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Automated tool extracting slide frames and high-quality screenshots from YouTube lectures paired with refined transcripts into organized PDF documents.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/Youtube-to-Screenshot-PDF" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: Interactive Chaos Theory Simulator -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-purple-100 text-purple-800 px-2 py-0.5 rounded border border-purple-200">
+                                Physics & Math Simulation
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Interactive Chaos Theory Simulator
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Interactive computational simulation of chaotic dynamical systems, strange attractors, and phase space trajectories.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/Interactive-Chaos-Theory-Simulator" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4: Simple Molecular Dynamics Simulator -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-rose-100 text-rose-800 px-2 py-0.5 rounded border border-rose-200">
+                                Computational Physics
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Simple Molecular Dynamics Simulator
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Particle-based molecular dynamics simulation modeling interatomic potential interactions, velocity Verlet integration, and thermodynamic observables.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/Simple-Molecular-Dynamics-SImulation" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 5: Lattice Boltzmann Simulation (Vortex Shedding) -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics naval-arch">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-blue-100 text-blue-800 px-2 py-0.5 rounded border border-blue-200">
+                                Fluid Dynamics / LBM
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Lattice Boltzmann Simulation of Simple Vortex Shedding Behind Cylinder
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Computational fluid dynamics simulation using the Lattice Boltzmann Method (LBM) to visualize Kármán vortex street shedding phenomena behind a cylinder.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/Vortex-Shedding-Past-a-Cylinder-using-LBM" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 6: N Body Gravitational Simulation -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-teal-100 text-teal-800 px-2 py-0.5 rounded border border-teal-200">
+                                Physics / Astrophysics
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            N Body Gravitational Simulation
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Gravitational N-body orbital dynamics simulator using numerical integration to model celestial dynamics and multi-body gravitational interactions.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/Simple-N-Body-Gravity-Simulation" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 7: Basic EDA Workbench (No Code EDA) -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="data-science">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
+                                Data Science / Python
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Basic EDA Workbench (No Code EDA)
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Interactive no-code exploratory data analysis workbench for dataset inspection, preprocessing, visual data exploration, and profiling.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/EDA-Workbench-Interactive-No-Code-Data-Exploration-Preprocessing-Tool" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 8: Basic Ship Routing Project (Dijkstra) -->
+                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="naval-arch data-science">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-code bg-sky-100 text-sky-800 px-2 py-0.5 rounded border border-sky-200">
+                                Naval Arch / Algorithms
+                            </span>
+                        </div>
+                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
+                            Basic Ship Routing Project (Dijkstra's Algorithm in route finding)
+                        </h3>
+                        <p class="text-slate-700 text-base mb-4 leading-snug">
+                            Marine route finding optimization tool utilizing Dijkstra's graph shortest path algorithm for inland and maritime vessel trajectories.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
+                        <a href="https://github.com/7angle-n/simple-ship-routing-project" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+           5. TECHNICAL TOOLBOX SECTION
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: TECHNICAL TOOLBOX SKILLS === */ -->
+        <section id="toolbox" class="mb-16 reveal">
+            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-toolbox text-emerald-700"></i> Technical Toolbox
+                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Languages, AI/ML & Math Tools)</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Programming Languages -->
+                <div class="sketch-box p-6 bg-white">
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
+                        Core Programming & Web
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-base">
+                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-solid fa-code text-blue-600 mr-1.5"></i>C++</span>
+                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-solid fa-c text-blue-700 mr-1.5"></i>C Language</span>
+                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-brands fa-python text-amber-600 mr-1.5"></i>Python</span>
+                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-brands fa-html5 text-orange-600 mr-1.5"></i>HTML5</span>
+                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-brands fa-css3-alt text-blue-500 mr-1.5"></i>CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Machine Learning, Deep Learning & AI -->
+                <div class="sketch-box p-6 bg-white">
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
+                        AI, ML, Deep Learning & NLP
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-base">
+                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-4 h-4 mr-1.5" alt="TensorFlow" />TensorFlow
+                        </span>
+                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="w-4 h-4 mr-1.5" alt="PyTorch" />PyTorch
+                        </span>
+                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" class="w-4 h-4 mr-1.5" alt="Scikit-Learn" />Scikit-Learn
+                        </span>
+                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
+                            <i class="fa-solid fa-brain text-purple-600 mr-1.5"></i>NLTK
+                        </span>
+                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
+                            <i class="fa-solid fa-robot text-purple-600 mr-1.5"></i>spaCy
+                        </span>
+                    </div>
+                </div>
+
+<!-- Scientific Computing & Symbolic Math -->
+                <div class="sketch-box p-6 bg-white">
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
+                        Scientific Computing & Mathematics
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-base">
+                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="devicon-numpy-original colored mr-1.5 text-lg"></i>NumPy</span>
+                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="devicon-pandas-original colored mr-1.5 text-lg"></i>pandas</span>
+                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="devicon-matplotlib-plain colored mr-1.5 text-lg"></i>Matplotlib</span>
+                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="fa-solid fa-square-root-variable text-blue-600 mr-1.5"></i>SciPy</span>
+                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="fa-solid fa-calculator text-blue-600 mr-1.5"></i>SymPy</span>
+                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="fa-solid fa-diagram-project text-blue-600 mr-1.5"></i>NetworkX</span>
+                    </div>
+                </div>
+
+                <!-- Databases & Technical Writing -->
+                <div class="sketch-box p-6 bg-white">
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
+                        Databases & Publishing
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-base">
+                        <span class="bg-emerald-50 text-emerald-900 px-3 py-1 rounded-md border border-emerald-200 font-code inline-flex items-center"><i class="devicon-postgresql-plain colored mr-1.5 text-lg"></i>PostgreSQL</span>
+                        <span class="bg-emerald-50 text-emerald-900 px-3 py-1 rounded-md border border-emerald-200 font-code inline-flex items-center"><i class="fa-solid fa-database text-emerald-600 mr-1.5"></i>SQL</span>
+                        <span class="bg-emerald-50 text-emerald-900 px-3 py-1 rounded-md border border-emerald-200 font-code inline-flex items-center"><i class="devicon-latex-original colored mr-1.5 text-lg"></i>LaTeX</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+           6. RESOURCES & NOTES SECTION
+           ========================================================================== -->
+        <!-- /* === EDIT HERE: RESOURCE LINKS & REPOS === */ -->
+        <section id="resources" class="mb-16 reveal">
+            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-folder-open text-amber-700"></i> Resources & Notebook Folders
+                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Notes & Repositories)</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- NAME Courses Notes -->
+                <a href="https://drive.google.com/drive/folders/1uzU_5KLPi24qSj8x1mDty-mkXuRURc1o?usp=sharing" target="_blank" rel="noopener" class="sketch-box p-6 bg-emerald-100 hover:bg-emerald-200 transition text-center block rotate-1 hover:rotate-0">
+                    <i class="fa-solid fa-square-root-variable text-4xl text-emerald-700 mb-2"></i>
+                    <h3 class="font-caveat text-2xl font-bold text-slate-900">NAME Academic Notes</h3>
+                    <p class="text-xs text-slate-700 mt-1 mb-3">Notes prepared by me during my academic period</p>
+                    <span class="text-xs font-architect font-bold text-emerald-900 underline">Open Notes Folder ↗</span>
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+           7. VISITOR SCRATCHPAD (INTERACTIVE HAND-DRAWN CANVAS)
+           ========================================================================== -->
+        <section id="scratchpad" class="mb-16 reveal">
+            <div class="sketch-box p-6 bg-white relative">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div>
+                        <h2 class="font-caveat text-3xl font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-pencil text-rose-600"></i> Interactive Visitor Scratchpad
+                        </h2>
+                        <p class="text-sm text-slate-600">Doodle, sketch, or leave a quick hand-written note on this canvas!</p>
+                    </div>
+
+                    <!-- Canvas Toolbar Controls -->
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button onclick="setCanvasColor('#1d3557')" class="w-7 h-7 rounded-full bg-slate-800 border-2 border-white shadow hover:scale-110 transition" title="Dark Ink"></button>
+                        <button onclick="setCanvasColor('#e63946')" class="w-7 h-7 rounded-full bg-rose-600 border-2 border-white shadow hover:scale-110 transition" title="Red Ink"></button>
+                        <button onclick="setCanvasColor('#2a9d8f')" class="w-7 h-7 rounded-full bg-emerald-600 border-2 border-white shadow hover:scale-110 transition" title="Green Ink"></button>
+                        <button onclick="setCanvasColor('#f4a261')" class="w-7 h-7 rounded-full bg-amber-500 border-2 border-white shadow hover:scale-110 transition" title="Amber Ink"></button>
+                        
+                        <button onclick="clearCanvas()" class="ml-2 text-xs font-architect bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded border border-slate-300">
+                            <i class="fa-solid fa-eraser mr-1"></i> Clear
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CANVAS ELEMENT -->
+                <div class="border-2 border-dashed border-slate-300 rounded-lg overflow-hidden bg-amber-50/30 cursor-crosshair relative">
+                    <canvas id="doodleCanvas" class="w-full h-64 block"></canvas>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+       CONTACT SECTION
+       ========================================================================== -->
+    <section id="contact" class="reveal-on-scroll pb-6">
+      <div class="rough-box p-8 bg-amber-100/90 relative text-center max-w-2xl mx-auto">
+        <div class="paper-tape"></div>
+        <h2 class="text-4xl font-architect font-bold mb-2">📮 Let's Connect!</h2>
+        <p class="text-2xl text-slate-700 mb-6">
+          Feel free to reach out for collaborations, discussions on physics/math simulations, or marine engineering projects!
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 text-xl font-bold">
+          <a href="https://github.com/7angle-n" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white border-2 border-slate-800 rounded-lg hover:bg-amber-50 shadow transition-all flex items-center gap-2">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub: 7angle-n</span>
+          </a>
+          <a href="https://www.linkedin.com/in/nafis-al-zahid-b24794353/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-sky-100 border-2 border-slate-800 rounded-lg hover:bg-sky-200 shadow transition-all flex items-center gap-2">
+            <svg class="w-5 h-5 fill-sky-700" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://www.facebook.com/nafis.alzahid/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-100 border-2 border-slate-800 rounded-lg hover:bg-blue-200 shadow transition-all flex items-center gap-2">
+            <svg class="w-5 h-5 fill-blue-700" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+    </div>
+
+    <!-- ==========================================================================
+       JAVASCRIPT INTERACTION & LOGIC
+       ========================================================================== -->
+    <script>
+        // Set dynamic current year in footer if element exists
+        const currentYearEl = document.getElementById('current-year');
+        if (currentYearEl) {
+            currentYearEl.textContent = new Date().getFullYear();
+        }
+
+        // 1. DYNAMIC SPIRAL BINDER RINGS CREATION
+        function generateSpiralRings() {
+            const container = document.getElementById('spiral-binder');
+            if (!container) return;
+            const totalRings = Math.floor(window.innerHeight / 32);
+            container.innerHTML = '';
+            for (let i = 0; i < totalRings; i++) {
+                const ring = document.createElement('div');
+                ring.className = 'spiral-ring';
+                container.appendChild(ring);
+            }
+        }
+        window.addEventListener('load', generateSpiralRings);
+        window.addEventListener('resize', generateSpiralRings);
+
+        // 2. PROJECT CATEGORY FILTER FUNCTIONALITY
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const filterBtns = document.querySelectorAll('.project-filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-white', 'active-filter');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-slate-800', 'text-white', 'active-filter');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 3. SCROLL REVEAL ANIMATION
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 4. INTERACTIVE SCRATCHPAD CANVAS LOGIC
+        const canvas = document.getElementById('doodleCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let strokeColor = '#1d3557';
+
+        function resizeCanvas() {
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.lineWidth = 2.5;
+            ctx.strokeStyle = strokeColor;
+        }
+
+        window.addEventListener('load', resizeCanvas);
+        window.addEventListener('resize', resizeCanvas);
+
+        function setCanvasColor(color) {
+            strokeColor = color;
+            ctx.strokeStyle = color;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Mouse Events
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return;
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        });
+
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+        // Touch Events for Mobile / Tablet Support
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            isDrawing = true;
+            ctx.beginPath();
+            ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+        }, { passive: false });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (!isDrawing) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+            ctx.stroke();
+        }, { passive: false });
+
+        canvas.addEventListener('touchend', () => isDrawing = false);
+    </script>
+</body>
+</html>
