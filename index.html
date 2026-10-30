@@ -1,913 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nafis Al Zahid | Handwritten Engineering & Scientific Portfolio</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="[https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css](https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css)">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nafis Al Zahid | Engineering & Scientific Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"lenis":"https://cdn.jsdelivr.net/npm/lenis@1.3.19/dist/lenis.mjs"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+img,video{display:block;max-width:100%}
+ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:root{--background:#08080a;--foreground:#f3f1ea;--surface:#111114;--surface-2:#17171b;--muted:#807f78;--line:rgba(243,241,234,.1);--line-strong:rgba(243,241,234,.22);--accent:#ff3b1d;--accent-2:#ff6a3d;--gutter:2.5rem;--section:9rem;
+--font-display:"Anton",sans-serif;--font-sans:"Onest",sans-serif;--ease:cubic-bezier(.16,1,.3,1);
+--hero:28rem;--mega:13rem;--display:7.5rem;--h1:5rem;--h2:3.25rem;--h3:1.75rem;--lead:1.375rem;--body:1.0625rem;--eyebrow:.8125rem}
+html{font-size:16px;background:#08080a}
+@media(max-width:1920px){html{font-size:.833333vw}}
+@media(max-width:1440px){html{font-size:1.111111vw}}
+@media(max-width:1024px){html{font-size:1.5625vw}}
+@media(max-width:640px){html{font-size:4.444444vw}:root{--gutter:16px}}
+html.lenis,html.lenis body{height:auto}
+body{background:#08080a;color:#f3f1ea;font-family:var(--font-sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:#ff3b1d;color:#08080a}
+main{position:relative;width:100%;overflow-x:hidden}
+.d{font-family:var(--font-display);text-transform:uppercase;letter-spacing:-.01em;font-weight:400}
+.eb{display:flex;align-items:center;gap:.75rem;font-size:var(--eyebrow);font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);line-height:1.2}
+.eb:before{content:"";width:.5rem;height:.5rem;border-radius:9999px;background:var(--accent)}
+.lab{font-size:var(--eyebrow);text-transform:uppercase;letter-spacing:.18em;color:var(--muted);line-height:1.2}
+section,footer{position:relative}
+.sec{padding:var(--section) var(--gutter)}
+/* reveals */
+.rv{opacity:0;transform:translateY(var(--y,16px));transition:opacity var(--t,.56s) var(--ease) var(--d,0s),transform var(--t,.56s) var(--ease) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.1em 0 .1em;margin:-.1em 0}
+.u{display:inline-block;transform:translateY(110%);opacity:0;transition:transform var(--t,.85s) var(--e,var(--ease)) var(--d,0s),opacity var(--t,.85s) var(--e,var(--ease)) var(--d,0s)}
+.in .u{transform:none;opacity:1}
+/* preloader */
+#pre{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.75rem;padding:var(--gutter);transition:transform .65s cubic-bezier(.22,1,.36,1)}
+#pre:before{content:"";position:absolute;inset:0;z-index:-10;background:var(--background)}
+#pre>*{transition:opacity .3s ease-out}
+#pre.fade>*{opacity:0}
+#pre.wipe{transform:translateY(-100%)}
+#pre .b{font-size:var(--h3);line-height:1}
+#pre .c{font-size:var(--display);line-height:1;font-variant-numeric:tabular-nums}
+#pre .c i{font-style:normal;color:var(--accent)}
+@media(min-width:640px){#pre{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:1rem}}
+/* nav */
+header{position:fixed;inset-inline:0;top:0;z-index:50;pointer-events:none}
+nav.top{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;padding:1.5rem var(--gutter)}
+.logo{display:flex;align-items:center;gap:.75rem}
+.mono{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid var(--line-strong);font-weight:600;letter-spacing:-.01em}
+.logo .lab{display:none;font-weight:500;letter-spacing:.22em}
+.links{display:none;gap:2.5rem}
+.links a{position:relative;font-size:var(--eyebrow);font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);transition:color .3s}
+.links a:after{content:"";position:absolute;bottom:-.25rem;left:0;height:1px;width:0;background:var(--accent);transition:width .35s var(--ease)}
+.links a:hover{color:var(--foreground)}.links a:hover:after{width:100%}
+.burger{width:2.5rem;height:2.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;position:relative;z-index:60}
+.burger i{display:block;height:.125rem;width:1.5rem;background:var(--foreground);transition:transform .35s var(--ease),opacity .2s}
+.burger.o i:nth-child(1){transform:translateY(.5rem) rotate(45deg)}.burger.o i:nth-child(2){opacity:0}.burger.o i:nth-child(3){transform:translateY(-.5rem) rotate(-45deg)}
+#menu{position:fixed;inset:0;z-index:50;background:var(--background);display:flex;flex-direction:column;justify-content:center;gap:1.5rem;padding-inline:var(--gutter);opacity:0;pointer-events:none;transition:opacity .45s ease-out}
+#menu.o{opacity:1;pointer-events:auto}
+#menu a{font-size:var(--h2);line-height:1;display:block;opacity:0;transform:translateY(48px);transition:opacity .42s ease-out,transform .42s ease-out}
+#menu.o a{opacity:1;transform:none}
+@media(min-width:640px){.logo .lab{display:block}}
+@media(min-width:768px){.links{display:flex}.burger,#menu{display:none}}
+/* hero */
+#top{display:flex;flex-direction:column;min-height:100svh;overflow:hidden}
+.hrow{position:relative;z-index:30;display:flex;flex-direction:column;gap:2rem;padding:7rem var(--gutter) 0}
+.roles{font-size:var(--h3);line-height:1.05}
+.roles .m{display:block}
+.hdesc{max-width:26rem;font-size:var(--body);line-height:1.6;color:var(--muted)}
+.port{position:absolute;z-index:20;pointer-events:none;bottom:0;left:50%;transform:translateX(-50%);height:86vh;width:80vw}
+.port figure,.port .lq{height:100%}
+.gbase{position:absolute;inset-inline:0;bottom:0;z-index:20;height:26vh;background:linear-gradient(to bottom,transparent,#08080a);pointer-events:none}
+.name{position:absolute;inset-inline:0;bottom:0;z-index:10;transform:translateY(6%);display:flex;flex-direction:column;align-items:center;line-height:.78;color:var(--accent);font-size:var(--mega)}
+.name .m{display:block;white-space:nowrap;padding:.12em .05em .02em;margin:-.12em 0 -.02em}
+.name .u{--t:.9s}
+.cue{position:absolute;z-index:30;bottom:2rem;left:var(--gutter);display:flex;align-items:center;gap:.75rem;font-size:var(--eyebrow);text-transform:uppercase;letter-spacing:.22em;color:var(--muted)}
+.cue:before{content:"";width:2.5rem;height:1px;background:var(--accent)}
+@media(min-width:640px){.hrow{flex-direction:row;align-items:flex-start;justify-content:space-between;padding-top:8rem}.roles{font-size:var(--h2)}.hdesc{text-align:right}.port{width:48vw}.name{font-size:var(--hero)}}
+@media(min-width:1024px){.port{width:36vw}}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);padding-block:2rem}
+.track{display:flex;width:max-content;flex-wrap:nowrap;animation:marquee 22s linear infinite}
+.track span{display:flex;align-items:center;white-space:nowrap;font-size:var(--h2)}
+.track span:after{content:"";margin-inline:2rem;width:.625rem;height:.625rem;border-radius:9999px;background:var(--accent)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* headings */
+.hd{margin-top:1.5rem;line-height:.95;font-size:var(--h2)}
+.hd.l1{line-height:1}
+@media(min-width:640px){.hd.b{font-size:var(--h1)}}
+.lead{margin-top:2rem;font-size:var(--lead);line-height:1.45;color:var(--muted)}
+/* story */
+.sg{display:grid;gap:3rem var(--gutter)}
+.pr{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;border-top:1px solid var(--line);padding:2rem 0}
+.pr:last-child{border-bottom:1px solid var(--line)}
+.pr b{font-size:var(--h3);font-weight:600;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--accent)}
+.pr h3,.vn h3{font-size:var(--h3);font-weight:600;letter-spacing:-.01em;line-height:1.15}
+.pr p{margin-top:.75rem;max-width:44ch;font-size:var(--body);line-height:1.6;color:var(--muted)}
+@media(min-width:1024px){.sg{grid-template-columns:repeat(12,1fr)}.sg>*:first-child,.sg>*:last-child{grid-column:span 6}.sg>*:last-child{padding-top:.5rem}}
+/* ventures */
+.vh{display:flex;flex-direction:column;gap:1.5rem}
+@media(min-width:640px){.vh{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+.vl{margin-top:4rem;display:grid;grid-template-columns:1fr;column-gap:var(--gutter);row-gap:4rem}
+@media(min-width:768px){.vl{grid-template-columns:1fr 1fr}.vl li:nth-child(even){margin-top:6rem}}
+.vi{aspect-ratio:16/11;width:100%;border-radius:.125rem}
+.vr{margin-top:1.5rem;border-top:1px solid var(--line);padding-top:1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem}
+.vn h3{transition:color .34s ease-out}
+article:hover .vn h3{color:var(--accent)}
+.vn p{margin-top:.5rem;max-width:42ch;font-size:var(--body);line-height:1.6;color:var(--muted)}
+.vy{flex-shrink:0;text-align:right}
+.vy .o{margin-top:.5rem;font-weight:500;color:var(--accent);font-size:var(--eyebrow);text-transform:uppercase;letter-spacing:.18em}
+.vc{margin-top:.75rem}
+.vc{letter-spacing:.22em}
+/* impact */
+.st{margin-top:4rem;display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+.st>div{display:flex;flex-direction:column;gap:1rem;border-bottom:1px solid var(--line);padding:2.5rem 0}
+.st dd{font-size:var(--display);line-height:.9;transition:color .34s ease-out}
+.st>div:hover dd{color:var(--accent)}
+.st dt{max-width:20ch;font-size:var(--body);line-height:1.6;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);order:2}
+.st dd{order:1}
+@media(min-width:640px){.st{grid-template-columns:1fr 1fr}.st>div:nth-child(even){border-left:1px solid var(--line);padding-left:2rem}}
+@media(min-width:1024px){.st{grid-template-columns:repeat(4,1fr)}.st>div{padding-block:3rem}.st>div:nth-child(even){border-left:0;padding-left:0}.st>div+div{border-left:1px solid var(--line);padding-left:2rem}}
+/* voices */
+.vg{margin-top:4rem;display:grid;gap:3rem var(--gutter)}
+.vb{width:100%;display:flex;align-items:baseline;gap:1.25rem;border-top:1px solid var(--line);padding:1.75rem 0;text-align:left}
+li:last-child>.vb{border-bottom:1px solid var(--line)}
+.vb .ix{font-size:var(--eyebrow);font-variant-numeric:tabular-nums;letter-spacing:.18em;color:var(--muted);transition:color .3s}
+.vb .nm{font-size:var(--h3);font-weight:600;letter-spacing:-.01em;color:var(--muted);transition:color .3s;display:block}
+.vb .rl{display:block;margin-top:.25rem}
+.vb .rule{margin-left:auto;align-self:center;height:1px;width:0;background:var(--accent);transition:width .4s var(--ease)}
+.vb.a .ix{color:var(--accent)}.vb.a .nm{color:var(--foreground)}.vb.a .rule{width:2.5rem}
+.fp{display:grid;grid-template-columns:1fr;align-items:flex-start;gap:2rem}
+.fp blockquote{order:2}.fp .pt{order:1}
+.q{max-width:30ch;font-size:var(--h3);font-weight:500;line-height:1.3;letter-spacing:-.01em}
+.q .u{--t:.52s;--e:cubic-bezier(.165,.84,.44,1);transform:translateY(18px)}
+.fp footer{margin-top:2rem;font-size:var(--eyebrow);text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.pt{aspect-ratio:4/5;width:100%;border-radius:.125rem;opacity:0;transform:scale(1.06);transition:opacity .64s var(--ease),transform .64s var(--ease)}
+.pt.in{opacity:1;transform:none}
+@media(min-width:640px){.fp{grid-template-columns:1fr 16rem}.fp blockquote{order:1}.fp .pt{order:2}}
+@media(min-width:1024px){.vg{grid-template-columns:repeat(12,1fr)}.vg>*:first-child{grid-column:span 5}.vg>*:last-child{grid-column:span 7}}
+/* footer */
+#contact{padding:var(--section) var(--gutter) 0}
+.em{margin-top:3rem;display:inline-flex;align-items:baseline;gap:.75rem;font-size:var(--h3);font-weight:600;letter-spacing:-.01em;word-break:break-all;transition:transform .34s ease-out,color .34s ease-out}
+.em:hover{transform:translateX(14px);color:var(--accent)}
+.em i{font-style:normal;color:var(--accent)}
+.fb{margin-top:var(--section);border-top:1px solid var(--line);padding:3rem 0;display:grid;gap:2.5rem}
+.fb .sig{font-size:var(--h2);line-height:1}
+.fb .tag{margin-top:1rem;letter-spacing:.22em}
+.soc a{display:flex;align-items:center;font-size:var(--body);color:var(--muted);transition:color .3s;line-height:1.9}
+.soc a:before{content:"";height:1px;width:0;background:var(--accent);transition:width .35s var(--ease)}
+.soc a:hover{color:var(--foreground)}.soc a:hover:before{width:1.5rem;margin-right:.5rem}
+@media(min-width:640px){.em{gap:1rem;font-size:var(--h1)}.cd.b{font-size:var(--display)}}
+@media(min-width:1024px){.fb{grid-template-columns:repeat(12,1fr)}.fb>:nth-child(1){grid-column:span 6}.fb>:nth-child(2),.fb>:nth-child(3){grid-column:span 3}.fb>:nth-child(3){text-align:right}}
+/* liquid */
+.lq{position:relative;overflow:hidden;background:var(--surface)}
+.lq.bare{background:none;overflow:visible}
+.lq svg{position:absolute;width:0;height:0}
+.lq .ph{position:absolute;inset:0;background:radial-gradient(130% 130% at 30% 15%,var(--surface-2),var(--background))}
+.lq img,.lq video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;pointer-events:auto}
+.lq .vl2{position:absolute;inset:0;background:var(--background);mix-blend-mode:color;opacity:.88;pointer-events:none}
+.lq .gl{position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,color-mix(in srgb,var(--accent) 35%,transparent) 50%,transparent 70%);opacity:0;pointer-events:none}
+.lq .vg2{position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 120%,color-mix(in srgb,#08080a 70%,transparent),transparent 60%);pointer-events:none}
+@media(prefers-reduced-motion:reduce){#pre{display:none}.track{animation:none}.rv,.u,.pt{opacity:1!important;transform:none!important;transition:none!important}}
 
+.name{font-size:25vw}
+@media(min-width:640px){.name{font-size:min(24rem,25vw)}}
+.name .m{padding-inline:.04em}
+.hrow{padding-top:7rem}
+.c3{}
+@media(min-width:1024px){.st.c3{grid-template-columns:repeat(3,1fr)}}
+.st.c3 dd{font-size:var(--h1);line-height:1}
+.st.c3 dt{max-width:32ch;text-transform:none;letter-spacing:0;font-size:var(--body)}
+.hl{margin-top:4rem;display:grid;grid-template-columns:1fr;column-gap:var(--gutter);row-gap:3rem}
+@media(min-width:768px){.hl{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.hl.t3{grid-template-columns:repeat(3,1fr)}}
+.hl article{height:100%;display:flex;flex-direction:column;justify-content:space-between;border-top:1px solid var(--line);padding-top:1.25rem}
+.hl h3{font-size:var(--h3);font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-top:.75rem;transition:color .34s ease-out}
+.hl article:hover h3{color:var(--accent)}
+.hl p{margin-top:.75rem;max-width:44ch;font-size:var(--body);line-height:1.6;color:var(--muted)}
+.hl .res{margin-top:1.25rem;font-size:var(--eyebrow);font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--accent)}
+.hl .lk{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;gap:1.5rem;font-size:var(--eyebrow);text-transform:uppercase;letter-spacing:.18em;font-weight:500}
+.hl .lk a{color:var(--muted);transition:color .3s}.hl .lk a:hover{color:var(--accent)}
+.fl{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.fl button{padding:.6rem 1.1rem;border:1px solid var(--line-strong);border-radius:9999px;font-size:var(--eyebrow);text-transform:uppercase;letter-spacing:.14em;font-weight:500;color:var(--muted);transition:all .3s}
+.fl button:hover{color:var(--foreground)}.fl button.a{background:var(--accent);border-color:var(--accent);color:var(--background)}
+.tb{margin-top:4rem;display:grid;gap:3rem var(--gutter);grid-template-columns:1fr}
+@media(min-width:768px){.tb{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.tb{grid-template-columns:repeat(4,1fr)}}
+.tb>div{border-top:1px solid var(--line);padding-top:1.25rem}
+.tb h3{font-size:var(--h3);font-weight:600;letter-spacing:-.01em;line-height:1.15}
+.tb ul{margin-top:1.25rem}
+.tb li{font-size:var(--body);color:var(--muted);line-height:2;display:flex;align-items:center;gap:.75rem}
+.tb li:before{content:"";width:.375rem;height:.375rem;border-radius:9999px;background:var(--accent)}.pbar .clr:hover{color:var(--accent)}
 
-    <!-- Google Fonts for Handwritten & Code aesthetic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;600;700&family=Fira+Code:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+/* --- Portfolio polish layer --- */
+:root{
+  --gutter:clamp(1.1rem,3.2vw,3.25rem);
+  --section:clamp(5rem,9vw,9rem);
+}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{line-height:1.45}
+header{
+  background:linear-gradient(to bottom,rgba(8,8,10,.92),rgba(8,8,10,.48) 72%,transparent);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+}
+nav.top{min-height:5rem;padding-block:1rem}
+.logo .mono{flex:0 0 auto}
+.links{gap:clamp(1rem,2.3vw,2.5rem)}
+.links a{white-space:nowrap}
+#top{min-height:100svh;min-height:100dvh;isolation:isolate}
+.hrow{
+  padding-top:clamp(7.25rem,12vh,9.5rem);
+  gap:clamp(1.25rem,4vw,4rem);
+}
+.roles{max-width:12ch;font-size:clamp(1.45rem,2.8vw,3rem);line-height:.98}
+.hdesc{max-width:30rem}
+.name{
+  font-size:clamp(5.5rem,22vw,24rem);
+  line-height:.78;
+  bottom:clamp(1.25rem,4vh,3.5rem);
+  transform:translateY(2%);
+  letter-spacing:-.035em;
+}
+.name .m{padding-inline:.025em}
+.cue{bottom:clamp(1.25rem,3.5vh,2.5rem)}
+.mq{padding-block:clamp(1.1rem,2.4vw,2rem)}
+.track{will-change:transform}
+@media(min-width:640px){
+  .hrow{padding-top:clamp(7.5rem,13vh,10rem)}
+  .name{font-size:clamp(12rem,22vw,24rem)}
+}
+@media(max-width:767px){
+  .hrow{padding-right:var(--gutter)}
+  .hdesc{text-align:left;max-width:31rem}
+  .name{font-size:clamp(5.5rem,22.5vw,10rem)}
+  .cue{font-size:.68rem}
+  .links{display:none}
+}
+@media(max-width:420px){
+  .roles{font-size:1.35rem}
+  .name{font-size:22vw}
+  .hrow{gap:1rem}
+}
+section[id]{scroll-margin-top:5rem}
+.sec{overflow:clip}
+.hl article{min-width:0}
+.pj article{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.pj article:before{
+  content:"";
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  margin-bottom:1.35rem;
+  border:1px solid var(--line);
+  background-color:#101014;
+  background-image:
+    linear-gradient(rgba(243,241,234,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.055) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% 65%,rgba(255,59,29,.2),transparent 55%);
+  background-size:24px 24px,24px 24px,100% 100%;
+  position:relative;
+  transition:border-color .3s,background-color .3s;
+}
+.pj:nth-child(1) article:before{
+  background-image:
+    linear-gradient(90deg,transparent 49.5%,rgba(255,59,29,.8) 49.5%,rgba(255,59,29,.8) 50.5%,transparent 50.5%),
+    linear-gradient(rgba(243,241,234,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.055) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% 60%,rgba(255,59,29,.18),transparent 55%);
+  background-size:100% 100%,24px 24px,24px 24px,100% 100%;
+}
+.pj:nth-child(2) article:before{
+  background-image:
+    repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,59,29,.42) 19px 20px,transparent 21px 38px),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,24px 24px,24px 24px;
+}
+.pj:nth-child(3) article:before{
+  background-image:
+    radial-gradient(ellipse at 32% 55%,transparent 0 12%,rgba(255,59,29,.8) 12.4% 12.8%,transparent 13.2% 22%,rgba(255,59,29,.55) 22.4% 22.8%,transparent 23.2% 32%,rgba(255,59,29,.35) 32.4% 32.8%,transparent 33.2%),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,24px 24px,24px 24px;
+}
+.pj:nth-child(4) article:before{
+  background-image:
+    radial-gradient(circle at 35% 40%,rgba(255,59,29,.85) 0 2px,transparent 3px),
+    radial-gradient(circle at 50% 55%,rgba(243,241,234,.75) 0 2px,transparent 3px),
+    radial-gradient(circle at 67% 37%,rgba(255,59,29,.65) 0 2px,transparent 3px),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,100% 100%,100% 100%,24px 24px,24px 24px;
+}
+.pj:nth-child(5) article:before{
+  background-image:
+    repeating-radial-gradient(ellipse at 50% 50%,transparent 0 13px,rgba(255,59,29,.5) 14px 15px,transparent 16px 26px),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,24px 24px,24px 24px;
+}
+.pj:nth-child(6) article:before{
+  background-image:
+    radial-gradient(ellipse at 30% 50%,transparent 0 15%,rgba(255,59,29,.65) 15.4% 15.8%,transparent 16.2% 28%,rgba(243,241,234,.45) 28.4% 28.8%,transparent 29.2%),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,24px 24px,24px 24px;
+}
+.pj:nth-child(7) article:before{
+  background-image:
+    linear-gradient(135deg,transparent 49.5%,rgba(255,59,29,.7) 49.7% 50.3%,transparent 50.5%),
+    linear-gradient(45deg,transparent 49.5%,rgba(243,241,234,.35) 49.7% 50.3%,transparent 50.5%),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,100% 100%,24px 24px,24px 24px;
+}
+.pj:nth-child(8) article:before{
+  background-image:
+    linear-gradient(90deg,transparent 12%,rgba(255,59,29,.7) 12.2% 12.8%,transparent 13% 49%,rgba(255,59,29,.7) 49.2% 49.8%,transparent 50% 86%,rgba(255,59,29,.7) 86.2% 86.8%,transparent 87%),
+    linear-gradient(rgba(243,241,234,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,241,234,.05) 1px,transparent 1px);
+  background-size:100% 100%,24px 24px,24px 24px;
+}
+.pj article:hover:before{border-color:rgba(255,59,29,.65);background-color:#151013}
+.pj .lk{margin-top:auto}
+.vl,.hl{row-gap:clamp(2rem,4vw,4rem)}
+.vl article:focus-within,.hl article:focus-within{outline:1px solid var(--accent);outline-offset:5px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .track{animation:none}
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 
-    <!-- CSS STYLES & HANDDRAWN EFFECTS -->
-    <style>
-        /* ==========================================================================
-           1. CORE FONTS & SKETCHBOOK BASE THEME
-           ========================================================================== */
-        :root {
-            --paper-bg: #f9f6ee;
-            --grid-line: rgba(180, 200, 220, 0.35);
-            --ink-blue: #1d3557;
-            --ink-black: #2b2d42;
-            --margin-red: rgba(230, 57, 70, 0.45);
-            --pencil-gray: #4a4e69;
-            --highlight-yellow: rgba(255, 225, 100, 0.65);
-        }
-
-        body {
-            background-color: var(--paper-bg);
-            color: var(--ink-black);
-            font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
-            font-size: 1.15rem;
-            line-height: 1.5;
-            /* Graph Paper Grid Effect */
-            background-image: 
-                linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-            background-size: 24px 24px;
-            overflow-x: hidden;
-        }
-
-
-
-        /* ==========================================================================
-           2. RED NOTEBOOK MARGIN & SPIRAL BINDER LOOPS
-           ========================================================================== */
-        .notebook-margin-line {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 48px;
-            width: 2px;
-            background-color: var(--margin-red);
-            z-index: 20;
-            pointer-events: none;
-        }
-
-        .spiral-binder {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 8px;
-            width: 32px;
-            z-index: 30;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            pointer-events: none;
-        }
-
-        .spiral-ring {
-            width: 24px;
-            height: 12px;
-            border: 3px solid #64748b;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #cbd5e1 0%, #475569 100%);
-            box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            margin: 6px 0;
-        }
-
-        @media (max-width: 640px) {
-            .notebook-margin-line { left: 28px; }
-            .spiral-binder { left: 2px; width: 22px; }
-            .spiral-ring { width: 18px; height: 9px; border-width: 2px; }
-        }
-
-        /* ==========================================================================
-           3. SVG FILTER EFFECTS & HAND-DRAWN BORDERS
-           ========================================================================== */
-        .rough-border {
-            border: 2px solid var(--ink-blue);
-            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-            box-shadow: 3px 4px 0px var(--ink-blue);
-            transition: all 0.25s ease-in-out;
-        }
-
-        .rough-border:hover {
-            transform: translateY(-3px) rotate(-0.5deg);
-            box-shadow: 5px 7px 0px var(--ink-blue);
-        }
-
-        .sketch-box {
-            background-color: rgba(255, 255, 255, 0.85);
-            border: 2px solid var(--ink-black);
-            border-radius: 2% 98% 3% 97% / 98% 3% 97% 2%;
-            box-shadow: 4px 5px 0px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Tape Banner Effect */
-        .tape-banner {
-            position: relative;
-        }
-        .tape-banner::before {
-            content: '';
-            position: absolute;
-            top: -12px;
-            left: 30%;
-            width: 100px;
-            height: 26px;
-            background-color: rgba(243, 244, 246, 0.7);
-            border: 1px dashed #d1d5db;
-            transform: rotate(-3deg);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            z-index: 10;
-        }
-
-        /* Highlighter effect */
-        .highlight {
-            background: linear-gradient(104deg, rgba(255,225,100,0) 0.9%, rgba(255,225,100,0.85) 2.4%, rgba(255,225,100,0.7) 97.9%, rgba(255,225,100,0) 100%);
-            padding: 0.1em 0.4em;
-            border-radius: 0.2em;
-        }
-
-        .highlight-blue {
-            background: linear-gradient(104deg, rgba(191,219,254,0) 0.9%, rgba(191,219,254,0.85) 2.4%, rgba(191,219,254,0.7) 97.9%, rgba(191,219,254,0) 100%);
-            padding: 0.1em 0.4em;
-            border-radius: 0.2em;
-        }
-
-        /* Smooth scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--paper-bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 5px;
-            border: 2px solid var(--paper-bg);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-    </style>
+</style>
 </head>
-<body class="pt-6 pb-16 px-4 md:px-12 lg:px-20 min-h-screen">
-
-    <!-- ==========================================================================
-       SVG ROUGH FILTERS FOR HAND-DRAWN SKETCHY EFFECTS
-       ========================================================================== -->
-    <svg width="0" height="0" class="absolute">
-        <defs>
-            <filter id="rough-paper">
-                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
-                <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="1.5">
-                    <feDistantLight azimuth="60" elevation="50" />
-                </feDiffuseLighting>
-                <feBlend mode="multiply" in="SourceGraphic" result="blend" />
-            </filter>
-        </defs>
-    </svg>
-
-    <!-- Notebook Left Red Line & Spiral Rings -->
-    <div class="notebook-margin-line"></div>
-    <div class="spiral-binder" id="spiral-binder">
-        <!-- Javascript dynamically fills spiral rings for seamless vertical repeat -->
-    </div>
-
-    <!-- MAIN CONTAINER WITH PADDING FOR NOTEBOOK MARGIN -->
-    <div class="max-w-6xl mx-auto pl-8 sm:pl-12 lg:pl-16 relative">
-
-        <!-- ==========================================================================
-           HEADER & NAVIGATION BAR (Handwritten Notebook Style)
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: NAVIGATION LINKS === */ -->
-        <header class="mb-12 flex flex-wrap items-center justify-between gap-4 border-b-2 border-dashed border-slate-400 pb-4">
-            <div class="flex items-center gap-2">
-                <span class="font-caveat text-3xl font-bold text-slate-800 tracking-wide">
-                    <i class="fa-solid fa-compass-drafting text-blue-700 mr-1"></i> Nafis.notes()
-                </span>
-                <span class="text-xs font-code bg-amber-100 text-amber-800 px-2 py-0.5 rounded border border-amber-300">
-                    BUET NAME '24
-      
-    </nav>
-  </header>
-
-
-        <!-- ==========================================================================
-           1. HERO & BIO SECTION
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: BIO & QUICK INFO === */ -->
-        <section id="about" class="mb-16 reveal active">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                
-                <!-- Main Bio Note -->
-                <div class="md:col-span-8 sketch-box p-6 md:p-8 relative tape-banner">
-                    <div class="inline-block bg-blue-100 text-blue-900 px-3 py-1 text-sm rounded-md font-code mb-3 border border-blue-300">
-                        Student ID: 2412002 | Naval Architecture & Marine Eng.
-                    </div>
-                    <h1 class="font-caveat text-4xl sm:text-5xl font-bold text-slate-900 mb-3 leading-tight">
-                        Hello! I'm <span class="highlight">Nafis Al Zahid</span> 👋
-                    </h1>
-                    <p class="text-lg text-slate-800 mb-4 leading-relaxed">
-                        Undergraduate student at <strong class="text-blue-900">BUET</strong> (Bangladesh University of Engineering and Technology) pursuing a B.Sc. in
-                        <span class="highlight-blue font-semibold">Naval Architecture and Marine Engineering</span>. 
-                        Deeply interested in mathematics, physics, computational modeling, artificial intelligence, machine learning, deep learning, quantum computing, and mechanical engineering simulations.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-2 text-sm font-code mb-4">
-                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-300"><i class="fa-solid fa-square-root-variable mr-1 text-amber-600"></i>Mathematics & Physics</span>
-                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-300"><i class="fa-solid fa-brain mr-1 text-purple-600"></i>AI & Deep Learning</span>
-                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-300"><i class="fa-solid fa-atom mr-1 text-blue-600"></i>Simulations & Quantum</span>
-                    </div>
-
-                    <div class="mt-4 flex flex-wrap gap-4 items-center">
-                        <a href="https://github.com/nafisalzahid" target="_blank" rel="noopener" class="rough-border bg-slate-800 text-white px-4 py-2 text-base font-architect flex items-center gap-2 hover:bg-slate-900">
-                            <i class="fa-brands fa-github text-lg"></i> GitHub Profile
-                        </a>
-                        <a href="#scratchpad" class="underline decoration-wavy text-blue-800 font-architect font-bold hover:text-blue-900">
-                            Leave a hand-drawn note below &darr;
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Sticky Note Sidebar Widget: Quick Focus & Interests -->
-                <!-- /* === EDIT HERE: QUICK FOCUS & INTERESTS BADGES === */ -->
-                <div id="interests" class="md:col-span-4 sketch-box p-6 bg-amber-100 border-amber-300 rotate-1 hover:rotate-0 transition-transform">
-                    <div class="text-xs font-code uppercase tracking-wider text-amber-900 mb-3 font-bold border-b border-amber-300 pb-1 flex items-center gap-1">
-                        📌 Quick Focus & Interests
-                    </div>
-                    <div class="flex flex-wrap gap-2 text-sm">
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Mathematics</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Physics</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Computational Chemistry</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Quantum Computation</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">ML</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Deep Learning</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">AI</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">NLP</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Computer Vision</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Mechanical Engineering</span>
-                        <span class="bg-amber-200/80 text-amber-900 px-2.5 py-1 rounded border border-amber-300 font-bold">Simulations</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-           2. EDUCATION SECTION (Notebook Timeline)
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: EDUCATION TIMELINE === */ -->
-        <section id="education" class="mb-16 reveal">
-            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-graduation-cap text-blue-700"></i> Education Timeline
-                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Academic Background)</span>
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- BUET Card -->
-                <div class="sketch-box p-5 bg-white border-l-4 border-l-blue-600 relative">
-                    <span class="text-xs font-code bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Currently Pursuing</span>
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mt-2">BUET</h3>
-                    <p class="text-sm font-semibold text-slate-700">B.Sc. in Naval Architecture & Marine Engineering</p>
-                    <p class="text-xs font-code text-slate-500 mt-2">Student ID: 2412002</p>
-                </div>
-
-                <!-- Notre Dame College -->
-                <div class="sketch-box p-5 bg-white border-l-4 border-l-amber-500 relative">
-                    <span class="text-xs font-code bg-amber-100 text-amber-800 px-2 py-0.5 rounded">HSC Science</span>
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mt-2">Notre Dame College</h3>
-                    <p class="text-sm text-slate-700">Motijheel, Dhaka</p>
-                    <p class="text-xs text-slate-500 mt-2">Higher Secondary Certificate (Science Group)</p>
-                </div>
-
-                <!-- Ideal School and College -->
-                <div class="sketch-box p-5 bg-white border-l-4 border-l-emerald-500 relative">
-                    <span class="text-xs font-code bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">SSC Science</span>
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mt-2">Ideal School & College</h3>
-                    <p class="text-sm text-slate-700">Banasree Branch, Dhaka</p>
-                    <p class="text-xs text-slate-500 mt-2">Secondary School Certificate (Science Group)</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-           3. OLYMPIADS & ACHIEVEMENTS SECTION
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: OLYMPIADS & ACHIEVEMENTS === */ -->
-        <section id="olympiads" class="mb-16 reveal">
-            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-trophy text-amber-600"></i> Olympiads & Achievements
-                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Competitions & Honors)</span>
-            </h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                
-                <!-- BDMO -->
-                <div class="sketch-box p-5 bg-amber-50/80 border-amber-300">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-caveat font-bold text-xl text-amber-900">BDMO 2021</span>
-                        <i class="fa-solid fa-award text-amber-600 text-xl"></i>
-                    </div>
-                    <p class="text-base text-slate-800 font-semibold">National Winner & National Camper</p>
-                    <p class="text-xs text-slate-600 mt-1">Bangladesh Mathematical Olympiad</p>
-                </div>
-
-                <!-- BDPhO -->
-                <div class="sketch-box p-5 bg-blue-50/80 border-blue-300">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-caveat font-bold text-xl text-blue-900">BDPhO 2023</span>
-                        <i class="fa-solid fa-medal text-blue-600 text-xl"></i>
-                    </div>
-                    <p class="text-base text-slate-800 font-semibold">National Winner & National Camper</p>
-                    <p class="text-xs text-slate-600 mt-1">Bangladesh Physics Olympiad</p>
-                </div>
-
-                <!-- BDOAA -->
-                <div class="sketch-box p-5 bg-purple-50/80 border-purple-300">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-caveat font-bold text-xl text-purple-900">BDOAA 2023</span>
-                        <i class="fa-solid fa-star text-purple-600 text-xl"></i>
-                    </div>
-                    <p class="text-base text-slate-800 font-semibold">National Camper</p>
-                    <p class="text-xs text-slate-600 mt-1">Bangladesh Astronomy & Astrophysics Olympiad</p>
-                </div>
-
-                <!-- Iranian Combinatorics -->
-                <div class="sketch-box p-5 bg-orange-50/80 border-orange-300">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-caveat font-bold text-xl text-orange-900">ICO Bronze Medalist</span>
-                        <i class="fa-solid fa-shield-halved text-orange-600 text-xl"></i>
-                    </div>
-                    <p class="text-base text-slate-800 font-semibold">Iranian Combinatorics Olympiad</p>
-                    <p class="text-xs text-slate-600 mt-1">Team: <em>Pirates of Combinatorics</em></p>
-                </div>
-
-                <!-- BDBO -->
-                <div class="sketch-box p-5 bg-emerald-50/80 border-emerald-300">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-caveat font-bold text-xl text-emerald-900">BDBO</span>
-                        <i class="fa-solid fa-leaf text-emerald-600 text-xl"></i>
-                    </div>
-                    <p class="text-base text-slate-800 font-semibold">2nd Runner-up (Regional)</p>
-                    <p class="text-xs text-slate-600 mt-1">Bangladesh Biology Olympiad</p>
-                </div>
-
-                <!-- Physics Brawl & Clubs -->
-                <div class="sketch-box p-5 bg-rose-50/80 border-rose-300">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-caveat font-bold text-xl text-rose-900">Physics Brawl & Club Honors</span>
-                        <i class="fa-solid fa-atom text-rose-600 text-xl"></i>
-                    </div>
-                    <p class="text-base text-slate-800 font-semibold">Team Kochi Physicists</p>
-                    <p class="text-xs text-slate-600 mt-1">Winner of several Olympiad competitions organized by math clubs</p>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-           4. PROJECTS SHOWCASE SECTION (EXACT 8 REAL PROJECTS)
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: PROJECTS SHOWCASE === */ -->
-        <section id="projects" class="mb-16 reveal">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                <div>
-                    <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-laptop-code text-indigo-700"></i> Project Showcase
-                        <span class="text-sm font-architect text-slate-500 font-normal ml-2">(8 Main Projects)</span>
-                    </h2>
-                    <p class="text-sm text-slate-600">Explore computational solvers, physics simulations, and automation tools.</p>
-                </div>
-
-                <!-- Filter Buttons -->
-                <div class="flex flex-wrap gap-2 text-sm font-architect">
-                    <button onclick="filterProjects('all')" class="project-filter-btn bg-slate-800 text-white px-3 py-1 rounded-full border border-slate-700 active-filter">All (8)</button>
-                    <button onclick="filterProjects('naval-arch')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Naval / Routing</button>
-                    <button onclick="filterProjects('physics')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Physics & Math</button>
-                    <button onclick="filterProjects('automation')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Automation</button>
-                    <button onclick="filterProjects('data-science')" class="project-filter-btn bg-white text-slate-700 px-3 py-1 rounded-full border border-slate-300 hover:bg-slate-100">Data Science</button>
-                </div>
-            </div>
-
-            <!-- PROJECTS GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-container">
-
-                <!-- PROJECT 1: Structural Mechanics Solver -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="naval-arch physics">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded border border-indigo-200">
-                                Naval Arch / Mechanics
-                            </span>
-                            <span class="text-xs text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                                <i class="fa-solid fa-globe mr-1"></i> Live Web App
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Structural Mechanics Solver
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Web application for structural mechanics analysis, frame and beam solver calculations, and internal force diagram generation.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-between">
-                        <a href="https://structural-mechanics-solver.vercel.app/" target="_blank" rel="noopener" class="text-sm font-architect text-indigo-700 font-bold hover:underline flex items-center gap-1">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open App
-                        </a>
-                        <a href="https://github.com/7angle-n/Structural-Mechanics-Solver" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 2: YouTube to Screenshot & PDF -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="automation">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-amber-100 text-amber-800 px-2 py-0.5 rounded border border-amber-200">
-                                Python / Automation
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Youtube to Screenshot and PDF with refined transcript
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Automated tool extracting slide frames and high-quality screenshots from YouTube lectures paired with refined transcripts into organized PDF documents.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/Youtube-to-Screenshot-PDF" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 3: Interactive Chaos Theory Simulator -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-purple-100 text-purple-800 px-2 py-0.5 rounded border border-purple-200">
-                                Physics & Math Simulation
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Interactive Chaos Theory Simulator
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Interactive computational simulation of chaotic dynamical systems, strange attractors, and phase space trajectories.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/Interactive-Chaos-Theory-Simulator" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 4: Simple Molecular Dynamics Simulator -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-rose-100 text-rose-800 px-2 py-0.5 rounded border border-rose-200">
-                                Computational Physics
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Simple Molecular Dynamics Simulator
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Particle-based molecular dynamics simulation modeling interatomic potential interactions, velocity Verlet integration, and thermodynamic observables.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/Simple-Molecular-Dynamics-SImulation" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 5: Lattice Boltzmann Simulation (Vortex Shedding) -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics naval-arch">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-blue-100 text-blue-800 px-2 py-0.5 rounded border border-blue-200">
-                                Fluid Dynamics / LBM
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Lattice Boltzmann Simulation of Simple Vortex Shedding Behind Cylinder
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Computational fluid dynamics simulation using the Lattice Boltzmann Method (LBM) to visualize Kármán vortex street shedding phenomena behind a cylinder.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/Vortex-Shedding-Past-a-Cylinder-using-LBM" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 6: N Body Gravitational Simulation -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="physics">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-teal-100 text-teal-800 px-2 py-0.5 rounded border border-teal-200">
-                                Physics / Astrophysics
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            N Body Gravitational Simulation
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Gravitational N-body orbital dynamics simulator using numerical integration to model celestial dynamics and multi-body gravitational interactions.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/Simple-N-Body-Gravity-Simulation" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 7: Basic EDA Workbench (No Code EDA) -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="data-science">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
-                                Data Science / Python
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Basic EDA Workbench (No Code EDA)
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Interactive no-code exploratory data analysis workbench for dataset inspection, preprocessing, visual data exploration, and profiling.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/EDA-Workbench-Interactive-No-Code-Data-Exploration-Preprocessing-Tool" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT 8: Basic Ship Routing Project (Dijkstra) -->
-                <div class="project-card sketch-box p-6 bg-white relative flex flex-col justify-between" data-category="naval-arch data-science">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <span class="text-xs font-code bg-sky-100 text-sky-800 px-2 py-0.5 rounded border border-sky-200">
-                                Naval Arch / Algorithms
-                            </span>
-                        </div>
-                        <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-2">
-                            Basic Ship Routing Project (Dijkstra's Algorithm in route finding)
-                        </h3>
-                        <p class="text-slate-700 text-base mb-4 leading-snug">
-                            Marine route finding optimization tool utilizing Dijkstra's graph shortest path algorithm for inland and maritime vessel trajectories.
-                        </p>
-                    </div>
-
-                    <div class="pt-3 border-t border-dashed border-slate-300 flex items-center justify-end">
-                        <a href="https://github.com/7angle-n/simple-ship-routing-project" target="_blank" rel="noopener" class="text-sm font-code text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                            <i class="fa-brands fa-github text-base"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-           5. TECHNICAL TOOLBOX SECTION
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: TECHNICAL TOOLBOX SKILLS === */ -->
-        <section id="toolbox" class="mb-16 reveal">
-            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-toolbox text-emerald-700"></i> Technical Toolbox
-                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Languages, AI/ML & Math Tools)</span>
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                <!-- Programming Languages -->
-                <div class="sketch-box p-6 bg-white">
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
-                        Core Programming & Web
-                    </h3>
-                    <div class="flex flex-wrap gap-2 text-base">
-                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-solid fa-code text-blue-600 mr-1.5"></i>C++</span>
-                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-solid fa-c text-blue-700 mr-1.5"></i>C Language</span>
-                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-brands fa-python text-amber-600 mr-1.5"></i>Python</span>
-                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-brands fa-html5 text-orange-600 mr-1.5"></i>HTML5</span>
-                        <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-md border border-slate-300 font-code"><i class="fa-brands fa-css3-alt text-blue-500 mr-1.5"></i>CSS3</span>
-                    </div>
-                </div>
-
-                <!-- Machine Learning, Deep Learning & AI -->
-                <div class="sketch-box p-6 bg-white">
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
-                        AI, ML, Deep Learning & NLP
-                    </h3>
-                    <div class="flex flex-wrap gap-2 text-base">
-                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-4 h-4 mr-1.5" alt="TensorFlow" />TensorFlow
-                        </span>
-                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="w-4 h-4 mr-1.5" alt="PyTorch" />PyTorch
-                        </span>
-                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" class="w-4 h-4 mr-1.5" alt="Scikit-Learn" />Scikit-Learn
-                        </span>
-                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
-                            <i class="fa-solid fa-brain text-purple-600 mr-1.5"></i>NLTK
-                        </span>
-                        <span class="bg-purple-50 text-purple-900 px-3 py-1 rounded-md border border-purple-200 font-code inline-flex items-center">
-                            <i class="fa-solid fa-robot text-purple-600 mr-1.5"></i>spaCy
-                        </span>
-                    </div>
-                </div>
-
-<!-- Scientific Computing & Symbolic Math -->
-                <div class="sketch-box p-6 bg-white">
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
-                        Scientific Computing & Mathematics
-                    </h3>
-                    <div class="flex flex-wrap gap-2 text-base">
-                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="devicon-numpy-original colored mr-1.5 text-lg"></i>NumPy</span>
-                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="devicon-pandas-original colored mr-1.5 text-lg"></i>pandas</span>
-                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="devicon-matplotlib-plain colored mr-1.5 text-lg"></i>Matplotlib</span>
-                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="fa-solid fa-square-root-variable text-blue-600 mr-1.5"></i>SciPy</span>
-                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="fa-solid fa-calculator text-blue-600 mr-1.5"></i>SymPy</span>
-                        <span class="bg-blue-50 text-blue-900 px-3 py-1 rounded-md border border-blue-200 font-code inline-flex items-center"><i class="fa-solid fa-diagram-project text-blue-600 mr-1.5"></i>NetworkX</span>
-                    </div>
-                </div>
-
-                <!-- Databases & Technical Writing -->
-                <div class="sketch-box p-6 bg-white">
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900 mb-3 border-b border-dashed pb-1">
-                        Databases & Publishing
-                    </h3>
-                    <div class="flex flex-wrap gap-2 text-base">
-                        <span class="bg-emerald-50 text-emerald-900 px-3 py-1 rounded-md border border-emerald-200 font-code inline-flex items-center"><i class="devicon-postgresql-plain colored mr-1.5 text-lg"></i>PostgreSQL</span>
-                        <span class="bg-emerald-50 text-emerald-900 px-3 py-1 rounded-md border border-emerald-200 font-code inline-flex items-center"><i class="fa-solid fa-database text-emerald-600 mr-1.5"></i>SQL</span>
-                        <span class="bg-emerald-50 text-emerald-900 px-3 py-1 rounded-md border border-emerald-200 font-code inline-flex items-center"><i class="devicon-latex-original colored mr-1.5 text-lg"></i>LaTeX</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-           6. RESOURCES & NOTES SECTION
-           ========================================================================== -->
-        <!-- /* === EDIT HERE: RESOURCE LINKS & REPOS === */ -->
-        <section id="resources" class="mb-16 reveal">
-            <h2 class="font-caveat text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-folder-open text-amber-700"></i> Resources & Notebook Folders
-                <span class="text-sm font-architect text-slate-500 font-normal ml-2">(Notes & Repositories)</span>
-            </h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <!-- NAME Courses Notes -->
-                <a href="https://drive.google.com/drive/folders/1uzU_5KLPi24qSj8x1mDty-mkXuRURc1o?usp=sharing" target="_blank" rel="noopener" class="sketch-box p-6 bg-emerald-100 hover:bg-emerald-200 transition text-center block rotate-1 hover:rotate-0">
-                    <i class="fa-solid fa-square-root-variable text-4xl text-emerald-700 mb-2"></i>
-                    <h3 class="font-caveat text-2xl font-bold text-slate-900">NAME Academic Notes</h3>
-                    <p class="text-xs text-slate-700 mt-1 mb-3">Notes prepared by me during my academic period</p>
-                    <span class="text-xs font-architect font-bold text-emerald-900 underline">Open Notes Folder ↗</span>
-                </a>
-
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-           7. VISITOR SCRATCHPAD (INTERACTIVE HAND-DRAWN CANVAS)
-           ========================================================================== -->
-        <section id="scratchpad" class="mb-16 reveal">
-            <div class="sketch-box p-6 bg-white relative">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                    <div>
-                        <h2 class="font-caveat text-3xl font-bold text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-pencil text-rose-600"></i> Interactive Visitor Scratchpad
-                        </h2>
-                        <p class="text-sm text-slate-600">Doodle, sketch, or leave a quick hand-written note on this canvas!</p>
-                    </div>
-
-                    <!-- Canvas Toolbar Controls -->
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <button onclick="setCanvasColor('#1d3557')" class="w-7 h-7 rounded-full bg-slate-800 border-2 border-white shadow hover:scale-110 transition" title="Dark Ink"></button>
-                        <button onclick="setCanvasColor('#e63946')" class="w-7 h-7 rounded-full bg-rose-600 border-2 border-white shadow hover:scale-110 transition" title="Red Ink"></button>
-                        <button onclick="setCanvasColor('#2a9d8f')" class="w-7 h-7 rounded-full bg-emerald-600 border-2 border-white shadow hover:scale-110 transition" title="Green Ink"></button>
-                        <button onclick="setCanvasColor('#f4a261')" class="w-7 h-7 rounded-full bg-amber-500 border-2 border-white shadow hover:scale-110 transition" title="Amber Ink"></button>
-                        
-                        <button onclick="clearCanvas()" class="ml-2 text-xs font-architect bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded border border-slate-300">
-                            <i class="fa-solid fa-eraser mr-1"></i> Clear
-                        </button>
-                    </div>
-                </div>
-
-                <!-- CANVAS ELEMENT -->
-                <div class="border-2 border-dashed border-slate-300 rounded-lg overflow-hidden bg-amber-50/30 cursor-crosshair relative">
-                    <canvas id="doodleCanvas" class="w-full h-64 block"></canvas>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==========================================================================
-       CONTACT SECTION
-       ========================================================================== -->
-    <section id="contact" class="reveal-on-scroll pb-6">
-      <div class="rough-box p-8 bg-amber-100/90 relative text-center max-w-2xl mx-auto">
-        <div class="paper-tape"></div>
-        <h2 class="text-4xl font-architect font-bold mb-2">📮 Let's Connect!</h2>
-        <p class="text-2xl text-slate-700 mb-6">
-          Feel free to reach out for collaborations, discussions on physics/math simulations, or marine engineering projects!
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-4 text-xl font-bold">
-          <a href="https://github.com/nafisalzahid" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white border-2 border-slate-800 rounded-lg hover:bg-amber-50 shadow transition-all flex items-center gap-2">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/nafis-al-zahid-b24794353/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-sky-100 border-2 border-slate-800 rounded-lg hover:bg-sky-200 shadow transition-all flex items-center gap-2">
-            <svg class="w-5 h-5 fill-sky-700" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://www.facebook.com/nafis.alzahid/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-100 border-2 border-slate-800 rounded-lg hover:bg-blue-200 shadow transition-all flex items-center gap-2">
-            <svg class="w-5 h-5 fill-blue-700" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            <span>Facebook</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-
-    </div>
-
-    <!-- ==========================================================================
-       JAVASCRIPT INTERACTION & LOGIC
-       ========================================================================== -->
-    <script>
-        // Set dynamic current year in footer if element exists
-        const currentYearEl = document.getElementById('current-year');
-        if (currentYearEl) {
-            currentYearEl.textContent = new Date().getFullYear();
-        }
-
-        // 1. DYNAMIC SPIRAL BINDER RINGS CREATION
-        function generateSpiralRings() {
-            const container = document.getElementById('spiral-binder');
-            if (!container) return;
-            const totalRings = Math.floor(window.innerHeight / 32);
-            container.innerHTML = '';
-            for (let i = 0; i < totalRings; i++) {
-                const ring = document.createElement('div');
-                ring.className = 'spiral-ring';
-                container.appendChild(ring);
-            }
-        }
-        window.addEventListener('load', generateSpiralRings);
-        window.addEventListener('resize', generateSpiralRings);
-
-        // 2. PROJECT CATEGORY FILTER FUNCTIONALITY
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const filterBtns = document.querySelectorAll('.project-filter-btn');
-
-            filterBtns.forEach(btn => {
-                btn.classList.remove('bg-slate-800', 'text-white', 'active-filter');
-                btn.classList.add('bg-white', 'text-slate-700');
-            });
-
-            event.target.classList.remove('bg-white', 'text-slate-700');
-            event.target.classList.add('bg-slate-800', 'text-white', 'active-filter');
-
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat.includes(category)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // 3. SCROLL REVEAL ANIMATION
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // 4. INTERACTIVE SCRATCHPAD CANVAS LOGIC
-        const canvas = document.getElementById('doodleCanvas');
-        const ctx = canvas.getContext('2d');
-        let isDrawing = false;
-        let strokeColor = '#1d3557';
-
-        function resizeCanvas() {
-            const rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            ctx.lineWidth = 2.5;
-            ctx.strokeStyle = strokeColor;
-        }
-
-        window.addEventListener('load', resizeCanvas);
-        window.addEventListener('resize', resizeCanvas);
-
-        function setCanvasColor(color) {
-            strokeColor = color;
-            ctx.strokeStyle = color;
-        }
-
-        function clearCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        // Mouse Events
-        canvas.addEventListener('mousedown', (e) => {
-            isDrawing = true;
-            ctx.beginPath();
-            ctx.moveTo(e.offsetX, e.offsetY);
-        });
-
-        canvas.addEventListener('mousemove', (e) => {
-            if (!isDrawing) return;
-            ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.stroke();
-        });
-
-        canvas.addEventListener('mouseup', () => isDrawing = false);
-        canvas.addEventListener('mouseleave', () => isDrawing = false);
-
-        // Touch Events for Mobile / Tablet Support
-        canvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const rect = canvas.getBoundingClientRect();
-            isDrawing = true;
-            ctx.beginPath();
-            ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
-        }, { passive: false });
-
-        canvas.addEventListener('touchmove', (e) => {
-            if (!isDrawing) return;
-            e.preventDefault();
-            const touch = e.touches[0];
-            const rect = canvas.getBoundingClientRect();
-            ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
-            ctx.stroke();
-        }, { passive: false });
-
-        canvas.addEventListener('touchend', () => isDrawing = false);
-    </script>
+<body>
+<div id="pre"><div class="b d">Nafis Al Zahid</div><div class="c d"><span id="cnt">0</span><i>%</i></div></div>
+<header><nav class="top"><a class="logo" href="#top"><span class="mono">NZ</span><span class="lab">Nafis Al Zahid</span></a>
+<ul class="links" id="links"></ul><button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button></nav></header>
+<div id="menu"></div>
+<main>
+<section id="top">
+<div class="hrow"><h2 class="roles d" id="roles"></h2>
+<p class="hdesc rv" data-at="2900" style="--t:.52s">A BUET student exploring naval architecture, scientific computing, and the ideas connecting mathematics, physics, and engineering.</p></div>
+<h1 class="name d" id="name"></h1>
+<div class="cue rv" data-at="3400">Scroll to explore</div>
+</section>
+<section class="mq" aria-label="Interests"><div class="track d" id="track"></div></section>
+
+<section id="about" class="sec"><div class="sg">
+<div><div class="eb">About</div><h2 class="hd b d" data-hd style="max-width:16ch">Where maths, physics and ships meet.</h2>
+<p class="lead rv" style="max-width:46ch;--t:.52s">I’m an undergraduate student at BUET, studying Naval Architecture and Marine Engineering. Alongside my coursework, I enjoy exploring mathematics, physics, and computational modeling through small projects and simulations. I’m also learning about artificial intelligence, machine learning, and quantum computing, and how these fields might contribute to engineering.</p></div>
+<ul id="prin"></ul></div></section>
+
+<section id="education" class="sec"><div class="eb">Education</div><h2 class="hd l1 d" data-hd>Where I've studied.</h2><dl class="st c3" id="edu"></dl></section>
+
+<section id="olympiads" class="sec"><div class="eb">Olympiads &amp; Achievements</div><h2 class="hd b d" data-hd style="max-width:14ch">Competitions &amp; honors.</h2><ul class="hl t3" id="oly"></ul></section>
+
+<section id="projects" class="sec"><div class="eb">Project Showcase</div><h2 class="hd b d" data-hd style="max-width:14ch">Things I've built.</h2>
+<p class="lead rv" style="max-width:46ch;--t:.52s">Computational solvers, physics simulations, and automation tools.</p>
+<div class="fl" id="fl"></div><ul class="hl" id="proj" style="margin-top:3rem"></ul></section>
+
+<section id="toolbox" class="sec"><div class="eb">Technical Toolbox</div><h2 class="hd l1 d" data-hd>The tools I use.</h2><div class="tb" id="tb"></div></section>
+
+<section id="notes" class="sec"><div class="eb">Resources</div><h2 class="hd l1 d" data-hd>Notes &amp; folders.</h2>
+<p class="lead rv" style="max-width:46ch;--t:.52s">NAME Academic Notes — notes prepared by me during my academic period.</p>
+<a class="em rv" href="https://drive.google.com/drive/folders/1uzU_5KLPi24qSj8x1mDty-mkXuRURc1o?usp=sharing" target="_blank" rel="noopener">Open notes folder <i>↗</i></a></section>
+
+<footer id="contact">
+<div class="eb">Let's Connect</div>
+<h2 class="hd cd b d" data-hd style="max-width:18ch;font-size:var(--h1)">Want to talk simulations, math or ships?</h2>
+<p class="lead rv" style="max-width:44ch;--t:.52s">Feel free to reach out for collaborations, discussions on physics/math simulations, or marine engineering projects.</p>
+<a class="em rv" href="https://github.com/nafisalzahid" target="_blank" rel="noopener">github.com/nafisalzahid <i>↗</i></a>
+<div class="fb"><div><p class="sig d">Nafis Al Zahid</p><p class="lab tag">BUET · Naval Architecture &amp; Marine Engineering</p></div>
+<nav aria-label="Social"><ul class="soc"><li><a href="https://github.com/nafisalzahid" target="_blank" rel="noreferrer noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/nafis-al-zahid-b24794353/" target="_blank" rel="noreferrer noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/nafis.alzahid/" target="_blank" rel="noreferrer noopener">Facebook</a></li></ul></nav>
+<p class="lab" id="copy"></p></div>
+</footer>
+</main>
+<script type="module">
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+function grid(){const w=innerWidth,r=((1920-w)/1920)*100*.6666,s=16-(16*r)/100;if(s>16)document.documentElement.style.fontSize=s+"px";else document.documentElement.style.removeProperty("font-size")}
+grid();addEventListener("resize",grid);
+let lenis=null;
+try{const {default:Lenis}=await import("lenis");lenis=new Lenis({smoothWheel:true});window.lenis=lenis;const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);document.documentElement.classList.add("lenis")}catch(e){}
+const nav=[["About","about"],["Education","education"],["Olympiads","olympiads"],["Projects","projects"],["Toolbox","toolbox"],["Contact","contact"]];
+$("#links").innerHTML=nav.map(n=>`<li><a href="#${n[1]}">${n[0]}</a></li>`).join("");
+$("#menu").innerHTML=nav.map(n=>`<a class="d" href="#${n[1]}">${n[0]}</a>`).join("");
+const mn=$("#menu"),bg=$("#burger");
+function closeMenu(){mn.classList.remove("o");bg.classList.remove("o");bg.setAttribute("aria-expanded","false")}
+bg.addEventListener("click",()=>{const o=mn.classList.toggle("o");bg.classList.toggle("o",o);bg.setAttribute("aria-expanded",o)});
+$$("a",mn).forEach((a,i)=>a.style.transitionDelay=`0s,${.12+i*.07}s`);
+$$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const id=a.getAttribute("href");const t=id==="#top"?0:$(id);if(t==null)return;e.preventDefault();lenis?lenis.scrollTo(t):(t===0?scrollTo({top:0,behavior:"smooth"}):t.scrollIntoView({behavior:"smooth"}));closeMenu()}));
+
+const focus=[["BUET","B.Sc. in Naval Architecture & Marine Engineering"],["Core interests","Mathematics, Physics, Computational Chemistry, Quantum Computation"],["AI","ML, Deep Learning, AI, NLP, Computer Vision"],["Engineering","Mechanical Engineering and Simulations"]];
+const edu=[["BUET","B.Sc. in Naval Architecture & Marine Engineering. Currently pursuing. Currently pursuing"],["Notre Dame College","HSC, Science Group. Motijheel, Dhaka"],["Ideal School & College","SSC, Science Group. Banasree Branch, Dhaka"]];
+const oly=[["BDMO 2021","Bangladesh Mathematical Olympiad","National Winner & National Camper"],["BDPhO 2023","Bangladesh Physics Olympiad","National Winner & National Camper"],["BDOAA 2023","Bangladesh Astronomy & Astrophysics Olympiad","National Camper"],["Iranian Combinatorics Olympiad","Team: Pirates of Combinatorics","Bronze Medalist"],["BDBO","Bangladesh Biology Olympiad","2nd Runner-up (Regional)"],["Physics Brawl & Club Honors","Winner of several Olympiad competitions organized by math clubs","Team Kochi Physicists"]];
+const G="https://github.com/7angle-n/";
+const proj=[["Structural Mechanics Solver","Naval Arch / Mechanics","naval-arch physics","Web application for structural mechanics analysis, frame and beam solver calculations, and internal force diagram generation.",G+"Structural-Mechanics-Solver","https://structural-mechanics-solver.vercel.app/"],
+["Youtube to Screenshot and PDF with refined transcript","Python / Automation","automation","Automated tool extracting slide frames and high-quality screenshots from YouTube lectures paired with refined transcripts into organized PDF documents.",G+"Youtube-to-Screenshot-PDF"],
+["Interactive Chaos Theory Simulator","Physics & Math Simulation","physics","Interactive computational simulation of chaotic dynamical systems, strange attractors, and phase space trajectories.",G+"Interactive-Chaos-Theory-Simulator"],
+["Simple Molecular Dynamics Simulator","Computational Physics","physics","Particle-based molecular dynamics simulation modeling interatomic potential interactions, velocity Verlet integration, and thermodynamic observables.",G+"Simple-Molecular-Dynamics-SImulation"],
+["Lattice Boltzmann Simulation of Simple Vortex Shedding Behind Cylinder","Fluid Dynamics / LBM","physics naval-arch","Computational fluid dynamics simulation using the Lattice Boltzmann Method (LBM) to visualize Kármán vortex street shedding phenomena behind a cylinder.",G+"Vortex-Shedding-Past-a-Cylinder-using-LBM"],
+["N Body Gravitational Simulation","Physics / Astrophysics","physics","Gravitational N-body orbital dynamics simulator using numerical integration to model celestial dynamics and multi-body gravitational interactions.",G+"Simple-N-Body-Gravity-Simulation"],
+["Basic EDA Workbench (No Code EDA)","Data Science / Python","data-science","Interactive no-code exploratory data analysis workbench for dataset inspection, preprocessing, visual data exploration, and profiling.",G+"EDA-Workbench-Interactive-No-Code-Data-Exploration-Preprocessing-Tool"],
+["Basic Ship Routing Project (Dijkstra's Algorithm in route finding)","Naval Arch / Algorithms","naval-arch data-science","Marine route finding optimization tool utilizing Dijkstra's graph shortest path algorithm for inland and maritime vessel trajectories.",G+"simple-ship-routing-project"]];
+const tools=[["Core Programming & Web",["C++","C Language","Python","HTML5","CSS3"]],["AI, ML, Deep Learning & NLP",["TensorFlow","PyTorch","Scikit-Learn","NLTK","spaCy"]],["Scientific Computing & Mathematics",["NumPy","pandas","Matplotlib","SciPy","SymPy","NetworkX"]],["Databases & Publishing",["PostgreSQL","SQL","LaTeX"]]];
+const R=(i,d,t)=>`class="rv" style="--d:${d}s;--t:${t||.56}s"`;
+const roles=$("#roles");["Future Naval Architect","Math & Physics Enthusiast","Simulation Builder"].forEach((w,i)=>roles.insertAdjacentHTML("beforeend",`<span class="m"><span class="u" style="--t:.76s;--d:${i*.08}s">${w}</span></span>`));
+const name=$("#name");["Nafis","Al Zahid"].forEach((w,l)=>name.insertAdjacentHTML("beforeend",`<span class="m">${[...w].map((c,i)=>`<span class="u" style="--d:${l*.24+i*.052}s">${c===" "?"&nbsp;":c}</span>`).join("")}</span>`));
+$("#track").innerHTML=Array(2).fill(["Mathematics","Physics","Simulation","Deep Learning","Quantum Computing"].map(w=>`<span>${w}</span>`).join("")).join("");
+$("#prin").innerHTML=focus.map((p,i)=>`<li class="pr rv" style="--d:${i*.09}s"><b>0${i+1}</b><div><h3>${p[0]}</h3><p>${p[1]}</p></div></li>`).join("");
+$("#edu").innerHTML=edu.map((e,i)=>`<div class="rv" style="--d:${i*.11}s"><dd class="d">${e[0]}</dd><dt>${e[1]}</dt></div>`).join("");
+$("#oly").innerHTML=oly.map((o,i)=>`<li class="rv" style="--d:${(i%3)*.1}s;--y:40px;--t:.62s"><article><div><div class="lab">${o[1]}</div><h3>${o[0]}</h3></div><p class="res">${o[2]}</p></article></li>`).join("");
+$("#proj").innerHTML=proj.map((p,i)=>`<li class="pj rv" data-c="${p[2]}" style="--d:${(i%2)*.12}s;--y:40px;--t:.62s"><article><div><div class="lab">${p[1]}</div><h3>${p[0]}</h3><p>${p[3]}</p></div><div class="lk">${p[5]?`<a href="${p[5]}" target="_blank" rel="noopener">Open app ↗</a>`:""}<a href="${p[4]}" target="_blank" rel="noopener">GitHub repo ↗</a></div></article></li>`).join("");
+$("#tb").innerHTML=tools.map((t,i)=>`<div class="rv" style="--d:${i*.1}s"><h3>${t[0]}</h3><ul>${t[1].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
+$("#copy").textContent=`© ${new Date().getFullYear()} Nafis Al Zahid. All rights reserved.`;
+/* filters */
+const fl=$("#fl");[["All Projects","all"],["Naval / Routing","naval-arch"],["Physics & Math","physics"],["Automation","automation"],["Data Science","data-science"]].forEach((f,i)=>{
+ const b=document.createElement("button");b.textContent=f[0];if(!i)b.className="a";
+ b.onclick=()=>{$$("button",fl).forEach(x=>x.classList.remove("a"));b.classList.add("a");$$(".pj").forEach(c=>{c.style.display=f[1]==="all"||c.dataset.c.includes(f[1])?"":"none"})};fl.append(b)});
+/* headings + in-view */
+$$("[data-hd]").forEach(h=>{h.innerHTML=h.textContent.trim().split(/\s+/).map(w=>`<span class="m"><span class="u">${w}</span></span>`).join(" ")});
+function lines(h){let top=null,n=-1;$$(".m",h).forEach(m=>{if(top===null||Math.abs(m.offsetTop-top)>4){n++;top=m.offsetTop}$(".u",m).style.setProperty("--d",n*.09+"s")})}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;if(e.target.hasAttribute("data-hd"))lines(e.target);e.target.classList.add("in");io.unobserve(e.target)}));
+$$("[data-hd],.rv:not([data-at])").forEach(e=>io.observe(e));
+/* preloader */
+const pre=$("#pre");
+if(RM){pre.remove();[name,roles,...$$("[data-at]")].forEach(e=>e.classList.add("in"))}
+else{lenis&&lenis.stop();scrollTo(0,0);document.body.style.overflow="";
+ [[name,2500],[roles,2700],...$$("[data-at]").map(e=>[e,+e.dataset.at])].forEach(([e,t])=>setTimeout(()=>e.classList.add("in"),Math.max(0,t-performance.now())));
+ const t0=performance.now(),cnt=$("#cnt");
+ const tick=t=>{const p=Math.min((t-t0)/2000,1);cnt.textContent=Math.round(p*100);
+  if(p<1)requestAnimationFrame(tick);
+  else{pre.classList.add("fade");setTimeout(()=>{pre.classList.add("wipe");pre.addEventListener("transitionend",e=>{if(e.target!==pre)return;pre.style.display="none";document.body.style.overflow="";lenis&&lenis.start()},{once:true})},500)}};
+ requestAnimationFrame(tick)}
+</script>
 </body>
 </html>
